@@ -1,0 +1,4 @@
+# LinCx
+OptoLinCx.ipynb is the jupyter notebook for processing raw ns2 files for OptoLinCx experiments. It contains a sample cell showing how to generate the plots for each channel and each brain region. 
+
+LinCx_Opto_Stim.m is the recording-end script that runs on a computer connected to Blackrock board. Using tune_laser.m, LinCx_Opto_Stim.m first determines an optimal laser voltage to result in optogenetic response (specified in tune_laser.m). This voltage is a de-facto multiplyer (b/w 1.2V and 3 V, i.e. b/w 0 and 1) of laser output power that is initially set manually by experimenter. calc_max_resp.m, laser_durations.m, recursive_search.m, and stim_at_v.m are all helper functions needed at this step to more or less efficiently narrow down the options. Then LinCx_Opto_Stim.m uses the optimal identified trigger voltage to carry out 30 randomly spaced 10ms stimulations recorded into ns2 files that OptoLinCx.ipynb then processes. 
